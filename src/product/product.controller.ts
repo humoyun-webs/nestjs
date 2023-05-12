@@ -7,7 +7,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
 import {v4} from "uuid"
-import { log } from 'console';
+
 
 @Controller('advert')
 export class ProductController {
@@ -29,7 +29,7 @@ export class ProductController {
     return this.productService.create(body, img);
   }
   
-  @Get(["date"])
+  @Get(["date", "date/:view"])
   getUsersByFilter(@Query('view') view: string) {
     console.log(view);
     
